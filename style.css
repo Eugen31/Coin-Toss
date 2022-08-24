@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    color: black;
+    width: 100%;
+    height: 100wh;
+    background: url('./assets/bg\ img.jpg') no-repeat fixed center;
+    background-size: cover;
+}
+
+#container {
+    width: 70%;
+    max-width: 40rem;
+    max-height: 75%;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background: rgba(123, 117, 117, 0.48);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border: 1px solid rgba(123, 117, 117, 0.46);
+}
+
+#score {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1.2em 0;
+}
+
+h4 {
+    padding: 0.2em 0;
+}
+
+#coin {
+    width: 7.5rem;
+    height: 7.5rem;
+    position: relative;
+    display: block;
+    margin: 2em auto;
+    transform-style: preserve-3d;
+    /* border: 2px solid black; */
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.tails {
+    transform: rotateX(180deg);
+}
+
+.heads,
+.tails {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+#messages {
+    text-align: center;
+    font-style: italic;
+    padding: 1em;
+}
+
+#refresh {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 0.4em;
+}
+
+
+/* animation */
+
+@keyframes spin-heads {
+    0% {
+        transform: rotateX(0);
+    }
+    100% {
+        transform: rotateX(1800deg);
+    }
+}
+
+@keyframes spin-tails {
+    0% {
+        transform: rotateX(0);
+    }
+    100% {
+        transform: rotateX(2000deg);
+    }
+}
+
+spin-tails,
+spin-heads {
+    animation: 2s ease-in-out;
+}
+
+
+/* media for tablet */
+
+@media only screen and (min-width: 768px) {
+    #container {
+        max-height: 55%;
+    }
+    #score {
+        flex-direction: row;
+    }
+    #messages {
+        padding: 0 auto;
+    }
+}
+
+
+/* media for large screen */
+
+@media only screen and (min-width: 992px) {
+    #container {
+        max-height: 80%;
+    }
+    #coin {
+        margin: 1em auto;
+    }
+}
